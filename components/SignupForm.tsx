@@ -4,6 +4,7 @@ import { registerUser } from '@/actions/auth'
 import { Input } from '@nextui-org/react'
 import Link from 'next/link'
 import { useFormState } from "react-dom"
+import SubmitButton from './SubmitButton'
 
 const initState = {message: null}
 
@@ -26,7 +27,7 @@ const SignupForm = () => {
         placeholder="Password"
         required
       />
-
+    <SubmitButton label={'sign up'} />
       <div>
         <Link href="/signin">{`Already have an account?`}</Link>
       </div>
