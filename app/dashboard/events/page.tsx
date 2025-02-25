@@ -1,5 +1,21 @@
-const EventPage = () => {
-  return null
-}
+import { getAllEvents } from "@/utils/events"
+import { getCurrentUser } from "@/utils/user"
+import Link from "next/link"
 
-export default EventPage
+  const Events = async () => {
+    const user = await getCurrentUser()
+    const events = await getAllEvents(user.id)
+
+    return (
+      <div>
+        {events.map((event) =>(
+          <div key={event.id}>
+            <Link href={`/dashboard/events/${event.id}`}>{event.name}</Link>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
+
+  export default Events
